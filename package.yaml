@@ -1,0 +1,85 @@
+name:                reg
+version:             0.1.0.0
+github:              "githubuser/reg"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2018 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/githubuser/reg#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+  dependencies:
+
+    - postgresql-simple
+    - cassava
+    - generics-sop
+    - postgresql-simple-sop
+    - yaml
+    - HaskellNet
+    - HaskellNet-SSL
+    - bytestring
+    - mime-mail
+    - network
+    - text
+    - blaze-html
+    
+  default-extensions:
+    - DeriveAnyClass
+    - DeriveGeneric
+
+
+executables:
+  reg-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - reg
+    - postgresql-simple
+    - servant-server
+    - text
+    - warp
+    - blaze-html
+    - servant-blaze
+    - digestive-functors
+    - digestive-functors-blaze
+    - cassava
+    - servant-cassava
+    - postgresql-simple-sop
+    - random
+
+    default-extensions:
+    - DataKinds
+    - TypeOperators
+    - OverloadedStrings
+
+tests:
+  reg-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - reg

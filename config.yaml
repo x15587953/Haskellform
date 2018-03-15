@@ -1,0 +1,7 @@
+urlbase: "http://localhost:8080"
+
+smtpFrom: "alexloughrey425@gmail.com"
+smtpServer: "smtp.gmail.com"
+smtpPort: "587"
+smtpUser: "alexloughrey425"
+smtpPassword: "abc123def456"
